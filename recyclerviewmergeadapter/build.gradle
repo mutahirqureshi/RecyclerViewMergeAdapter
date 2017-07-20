@@ -1,21 +1,33 @@
+ext {
+    versions = rootProject.versions + [
+            // override defaults here
+    ]
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.vanniktech:gradle-android-javadoc-plugin:0.2.1'
+    }
+}
+
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.vanniktech.android.javadoc'
 
-group = 'me.mvdw.recyclerviewmergeadapter'
-version = "2.0.0"
-
-def siteUrl = 'https://github.com/martijnvdwoude/recycler-view-merge-adapter'
-def gitUrl = 'https://github.com/martijnvdwoude/recycler-view-merge-adapter.git'
-def issuesUrl = 'https://github.com/martijnvdwoude/recycler-view-merge-adapter/issues'
+group = 'com.github.mutahirqureshi'
+version = "1.0.0"
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "22.0.1"
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 23
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 1
         versionName version
     }
@@ -28,85 +40,9 @@ android {
     }
 }
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-
-    pkg {
-        repo = "maven"
-        name = "RecyclerViewMergeAdapter"
-        desc = "A merge adapter for the RecyclerView"
-        websiteUrl = siteUrl
-        issueTrackerUrl = issuesUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-}
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'com.android.support:recyclerview-v7:23.0.1'
-    compile 'com.android.support:support-annotations:23.0.1'
-}
-
-install {
-    repositories.mavenInstaller {
-        pom {
-            project {
-                packaging 'aar'
-
-                name 'A merge adapter for the RecyclerView'
-                url siteUrl
-
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'mvdw'
-                        name 'Martijn van der Woude'
-                        email 'martijnvdwoude@gmail.com'
-                    }
-                }
-
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-
-                }
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
+    compile "com.android.support:appcompat-v7:$versions.androidSupport"
+    compile "com.android.support:recyclerview-v7:$versions.androidSupport"
+    compile "com.android.support:support-annotations:$versions.androidSupport"
 }

@@ -1,4 +1,4 @@
-package me.mvdw.recyclerviewmergeadapter.adapter;
+package com.mutahirqureshi.recyclerviewmergeadapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * ViewsAdapter, ported from CommonsWare SackOfViews adapter -> https://github.com/commonsguy/cwac-sacklist.
+ * ViewsAdapter, ported from CommonsWare SackOfViews adapter https://github.com/commonsguy/cwac-sacklist.
  */
 public class ViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

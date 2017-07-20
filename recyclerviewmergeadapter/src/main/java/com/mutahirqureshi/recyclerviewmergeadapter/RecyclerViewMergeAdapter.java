@@ -1,4 +1,4 @@
-package me.mvdw.recyclerviewmergeadapter.adapter;
+package com.mutahirqureshi.recyclerviewmergeadapter;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -311,6 +311,8 @@ public class RecyclerViewMergeAdapter extends RecyclerView.Adapter {
 
     /**
      * A List of View objects to the adapter at once. Make sure your list does not contain null.
+     *
+     * @param views Views to add to the adapter. Do not pass null into this method.
      */
     public void addViews(@NonNull List<View> views) {
         addAdapter(new ViewAdapter(views));
