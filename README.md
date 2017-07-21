@@ -2,21 +2,34 @@
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 RecyclerViewMergeAdapter
-===
-
-A merge adapter for the RecyclerView, a continuation on this gist: https://gist.github.com/athornz/008edacd1d3b2f1e1836
+========================
 
 The purpose of this merge adapter is to let you use multiple adapters with a RecyclerView instead of only one. 
 
-## Download
-Gradle (jCenter)
+Download
+--------
+
+##### Gradle (JitPack)
+
+In your root build.gradle:
 ```
-dependencies {
-    compile 'me.mvdw.recyclerviewmergeadapter:recyclerviewmergeadapter:2.0.0'
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
 }
 ```
 
-## Usage
+In your project build.gradle:
+```
+dependencies {
+    compile 'com.github.mutahirqureshi:RecyclerViewMergeAdapter:1.0.0'
+}
+```
+
+Usage
+-----
 
 Add subadapters to the merge adapter and then set it on the RecyclerView. It's also possible to add individual views or a list of views to the merge adapter, using `addView(View... view)` or `addView(List<View> viewList)`
 
@@ -49,6 +62,8 @@ myRecyclerView.setAdapter(mergeAdapter);
 - `getSubAdapterCount()`
 - `getSubAdapter(int index)`
 - `clearAdapters()`
+- `containsAdapter(RecyclerView.Adapter adapter)`
+
 
 License
 -------
@@ -66,6 +81,4 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-## Development
 
-We have a small test project called [RecyclerViewMergeAdapterTest](https://github.com/ronaldw/RecyclerViewMergeAdapterTest) where you can find an example of how to import and use the adapter. If you find any bugs or issues, please file a report with the tracker.
