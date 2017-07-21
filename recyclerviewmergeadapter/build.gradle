@@ -19,7 +19,6 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.vanniktech.android.javadoc'
 
 group = 'com.github.mutahirqureshi'
-version = "1.0.0"
 
 android {
     compileSdkVersion versions.compileSdk
@@ -29,7 +28,7 @@ android {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode 1
-        versionName version
+        versionName '1.0.1'
     }
 
     buildTypes {

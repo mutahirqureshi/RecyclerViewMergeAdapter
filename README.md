@@ -1,5 +1,7 @@
 [![Platform](http://img.shields.io/badge/platform-android-brightgreen.svg?style=flat)](http://developer.android.com/index.html)
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![](https://jitpack.io/v/mutahirqureshi/recyclerviewmergeadapter.svg)](https://jitpack.io/#mutahirqureshi/recyclerviewmergeadapter)
+
 
 RecyclerViewMergeAdapter
 ========================
@@ -24,7 +26,7 @@ allprojects {
 In your project build.gradle:
 ```
 dependencies {
-    compile 'com.github.mutahirqureshi:RecyclerViewMergeAdapter:1.0.0'
+    compile 'com.github.mutahirqureshi:recyclerviewmergeadapter:1.0.1'
 }
 ```
 
